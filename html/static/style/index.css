@@ -1,0 +1,17 @@
+.my-footer {
+    background-color: #163b65;
+}
+
+/* After notie styles are applied to DOM: */
+.notie-container {
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    ;
+}
+
+.datepicker-picker{
+    z-index: 1051 !important;
+}
+
+.swal2-popup{
+    z-index: 1;
+}
