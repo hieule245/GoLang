@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"text/template"
 
-	"github.com/golang-web/pkg/config"
-	"github.com/golang-web/pkg/models"
+	"github.com/golang-web/cmd/internal/config"
+	"github.com/golang-web/cmd/internal/models"
 	"github.com/justinas/nosurf"
 )
 

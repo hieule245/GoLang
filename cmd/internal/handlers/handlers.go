@@ -6,9 +6,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/golang-web/pkg/config"
-	"github.com/golang-web/pkg/models"
-	"github.com/golang-web/pkg/render"
+	"github.com/golang-web/cmd/internal/config"
+	"github.com/golang-web/cmd/internal/models"
+	"github.com/golang-web/cmd/internal/render"
 )
 
 // Repo the repository used by the handlers
