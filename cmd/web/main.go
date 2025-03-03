@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/golang-web/config"
+	"github.com/golang-web/pkg/config"
 	"github.com/golang-web/pkg/handlers"
 	"github.com/golang-web/pkg/render"
 )
