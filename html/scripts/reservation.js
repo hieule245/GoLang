@@ -1,6 +1,6 @@
 let base = Promt();
 
-let Change = document.getElementById("click")
+// let Change = document.getElementById("click")
 // if(Change.classList.contains("text-danger")){
 //     Change.classList.remove("text-danger")
 // } else {
@@ -28,98 +28,98 @@ document.getElementById("click").addEventListener("click", function () {
 })
 
 
-    (function () {
-        'use strict';
-        window.addEventListener('load', function () {
-            // Fetch all the form
-            var forms = this.document.getElementsByClassName("need-validation");
-            var validation = Array.prototype.filter.call(forms, function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
+//     (function () {
+//         'use strict';
+//         window.addEventListener('load', function () {
+//             // Fetch all the form
+//             var forms = this.document.getElementsByClassName("need-validation");
+//             var validation = Array.prototype.filter.call(forms, function (form) {
+//                 form.addEventListener('submit', function (event) {
+//                     if (form.checkValidity() === false) {
+//                         event.preventDefault();
+//                         event.stopPropagation();
+//                     }
+//                     form.classList.add('was-validated');
+//                 }, false);
+//             });
+//         }, false);
+//     })();
 
-const elem = document.getElementById('foo');
-const rangepicker = new DateRangePicker(elem, {
-    format: "yyyy-mm-dd",
-});
+// const elem = document.getElementById('foo');
+// const rangepicker = new DateRangePicker(elem, {
+//     format: "yyyy-mm-dd",
+// });
 
-function notify(noti, notiType) {
-    notie.alert({
-        type: notiType,
-        text: noti,
-    })
-}
+// function notify(noti, notiType) {
+//     notie.alert({
+//         type: notiType,
+//         text: noti,
+//     })
+// }
 
-function swalFire(title, text, icon, confirmText) {
-    Swal.fire({
-        title: title,
-        html: text,
-        icon: icon,
-        confirmButtonText: confirmText
-    })
-}
+// function swalFire(title, text, icon, confirmText) {
+//     Swal.fire({
+//         title: title,
+//         html: text,
+//         icon: icon,
+//         confirmButtonText: confirmText
+//     })
+// }
 
 function Promt() {
 
-    let error = function (c) {
-        const {
-            msg = "",
-            icon = "",
-            position = ""
-        } = c
-        Swal.fire({
-            position: position,
-            icon: icon,
-            title: msg,
-            showConfirmButton: false,
-            timer: 1500
-        });
-    }
+    // let error = function (c) {
+    //     const {
+    //         msg = "",
+    //         icon = "",
+    //         position = ""
+    //     } = c
+    //     Swal.fire({
+    //         position: position,
+    //         icon: icon,
+    //         title: msg,
+    //         showConfirmButton: false,
+    //         timer: 1500
+    //     });
+    // }
 
-    let success = function (c) {
-        const {
-            msg = "",
-            icon = "",
-            position = ""
-        } = c
-        Swal.fire({
-            position: position,
-            icon: icon,
-            title: msg,
-            showConfirmButton: false,
-            timer: 1500
-        });
-    }
+    // let success = function (c) {
+    //     const {
+    //         msg = "",
+    //         icon = "",
+    //         position = ""
+    //     } = c
+    //     Swal.fire({
+    //         position: position,
+    //         icon: icon,
+    //         title: msg,
+    //         showConfirmButton: false,
+    //         timer: 1500
+    //     });
+    // }
 
-    let toast = function (c) {
-        const {
-            msg = "",
-            icon = "success",
-            position = "top-end",
-        } = c
-        const Toast = Swal.mixin({
-            toast: true,
-            position: position,
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-            }
-        });
-        Toast.fire({
-            icon: icon,
-            title: msg
-        });
-    }
+    // let toast = function (c) {
+    //     const {
+    //         msg = "",
+    //         icon = "success",
+    //         position = "top-end",
+    //     } = c
+    //     const Toast = Swal.mixin({
+    //         toast: true,
+    //         position: position,
+    //         showConfirmButton: false,
+    //         timer: 3000,
+    //         timerProgressBar: true,
+    //         didOpen: (toast) => {
+    //             toast.onmouseenter = Swal.stopTimer;
+    //             toast.onmouseleave = Swal.resumeTimer;
+    //         }
+    //     });
+    //     Toast.fire({
+    //         icon: icon,
+    //         title: msg
+    //     });
+    // }
 
     async function custom(c) {
         const {
@@ -166,9 +166,9 @@ function Promt() {
     }
 
     return {
-        success: success,
-        toast: toast,
-        error: error,
+        // success: success,
+        // toast: toast,
+        // error: error,
         custom: custom
     }
 }
