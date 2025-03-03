@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/golang-web/cmd/internal/config"
-	"github.com/golang-web/cmd/internal/handlers"
-	"github.com/golang-web/cmd/internal/render"
+	"github.com/golang-web/internal/config"
+	"github.com/golang-web/internal/handlers"
+	"github.com/golang-web/internal/render"
 )
 
 const postNumber = ":8080"
