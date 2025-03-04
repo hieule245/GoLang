@@ -1,8 +1,10 @@
 package forms
 
 import (
+	"fmt"
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 // Form creates a custom form struct, embeds a url.Values object
@@ -27,8 +29,27 @@ func New(data url.Values) *Form {
 // Has check if form field is in post and not empty
 func (f *Form) Has(field string, r *http.Request) bool {
 	x := r.Form.Get(field)
-	if x != "" {
-		f.Errors.Add(field, "This field can't be blank")
+	if x == "" {
+		return false
+	}
+	return true
+}
+
+// Required check any input field is empty or not
+func (f *Form) Required(field ...string) {
+	for _, input := range field {
+		value := f.Get(input)
+		if strings.TrimSpace(value) == "" {
+			f.Errors.Add(input, "This field cannot be empty!!!")
+		}
+	}
+}
+
+// MinLength checks for string minium length
+func (f *Form) MinLength(field string, leng int, r *http.Request) bool {
+	value := f.Get(field)
+	if len(value) < leng {
+		f.Errors.Add(field, fmt.Sprintf("This field musy be at least %d chars", leng))
 		return false
 	}
 	return true
