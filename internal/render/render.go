@@ -7,15 +7,15 @@ import (
 	"path/filepath"
 	"text/template"
 
-	"github.com/golang-web/pkg/config"
-	"github.com/golang-web/pkg/models"
+	"github.com/golang-web/internal/config"
+	"github.com/golang-web/internal/models"
 	"github.com/justinas/nosurf"
 )
 
 type mapCache map[string]*template.Template
 
 // func RenderTemplate(w http.ResponseWriter, html string) {
-// 	parsedTemplate, _ := template.ParseFiles("./templates/"+html, "./templates/base.layout.tmpl")
+// 	parsedTemplate, _ := template.ParseFiles("./templates/"+html, "./templates/base.layout.gohtml")
 // 	err := parsedTemplate.Execute(w, nil)
 // 	if err != nil {
 // 		fmt.Fprintf(w, "Can't find html file")
@@ -34,7 +34,7 @@ func AddDefaultData(td *models.TemplateData, r *http.Request) *models.TemplateDa
 	return td
 }
 
-func RenderTemplate(w http.ResponseWriter, r *http.Request, tmpl string, data *models.TemplateData) {
+func RenderTemplate(w http.ResponseWriter, r *http.Request, gohtml string, data *models.TemplateData) {
 	var tc mapCache
 
 	if app.UseCache {
@@ -43,7 +43,7 @@ func RenderTemplate(w http.ResponseWriter, r *http.Request, tmpl string, data *m
 		tc, _ = CreateTemplateCache()
 	}
 
-	t, ok := tc[tmpl]
+	t, ok := tc[gohtml]
 	if !ok {
 		log.Fatal(ok)
 	}
@@ -65,7 +65,7 @@ func RenderTemplate(w http.ResponseWriter, r *http.Request, tmpl string, data *m
 
 func CreateTemplateCache() (mapCache, error) {
 	var myCache = make(mapCache)
-	pages, err := filepath.Glob("./templates/*.page.tmpl")
+	pages, err := filepath.Glob("./templates/*.page.gohtml")
 	if err != nil {
 		return myCache, err
 	}
@@ -77,13 +77,13 @@ func CreateTemplateCache() (mapCache, error) {
 			return myCache, err
 		}
 
-		matches, err := filepath.Glob("./templates/*.layout.tmpl")
+		matches, err := filepath.Glob("./templates/*.layout.gohtml")
 		if err != nil {
 			return myCache, err
 		}
 
 		if len(matches) > 0 {
-			ts, err = ts.ParseGlob("./templates/*.layout.tmpl")
+			ts, err = ts.ParseGlob("./templates/*.layout.gohtml")
 			if err != nil {
 				return myCache, err
 			}

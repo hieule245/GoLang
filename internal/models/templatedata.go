@@ -1,5 +1,7 @@
 package models
 
+import "github.com/golang-web/internal/forms"
+
 type TemplateData struct {
 	StringMap map[string]string
 	IntMap    map[string]int
@@ -11,4 +13,5 @@ type TemplateData struct {
 	// cảnh báo lỗi
 	Warning string
 	Error   string
+	Form    *forms.Form
 }
