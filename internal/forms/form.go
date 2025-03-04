@@ -4,7 +4,10 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"regexp"
 	"strings"
+
+	"github.com/asaskevich/govalidator"
 )
 
 // Form creates a custom form struct, embeds a url.Values object
@@ -53,4 +56,25 @@ func (f *Form) MinLength(field string, leng int, r *http.Request) bool {
 		return false
 	}
 	return true
+}
+
+// IsEmail checks valid email address
+func (f *Form) IsEmail(field string) {
+	if !govalidator.IsEmail(f.Get(field)) {
+		f.Errors.Add(field, "Invalid email address")
+	}
+}
+
+func (f *Form) IsPhone(field string) bool {
+	pattern := `^(0[1-9][0-9]{8})$`
+	match, err := regexp.MatchString(pattern, f.Get(field))
+	if err != nil {
+		f.Errors.Add(field, "Pattern is not valid!")
+		return false
+	}
+	if !match {
+		f.Errors.Add(field, "Invalid phone")
+		return match
+	}
+	return match
 }
