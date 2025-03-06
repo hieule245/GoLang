@@ -2,6 +2,8 @@ package render
 
 import (
 	"bytes"
+	"errors"
+	"fmt"
 	"log"
 	"net/http"
 	"path/filepath"
@@ -23,6 +25,7 @@ type mapCache map[string]*template.Template
 // }
 
 var app *config.AppConfig
+var pathToTemplates = "./templates"
 
 // NewTemplate to create a new template
 func NewTemplate(a *config.AppConfig) {
@@ -37,7 +40,7 @@ func AddDefaultData(td *models.TemplateData, r *http.Request) *models.TemplateDa
 	return td
 }
 
-func RenderTemplate(w http.ResponseWriter, r *http.Request, gohtml string, data *models.TemplateData) {
+func RenderTemplate(w http.ResponseWriter, r *http.Request, gohtml string, data *models.TemplateData) error {
 	var tc mapCache
 
 	if app.UseCache {
@@ -48,7 +51,7 @@ func RenderTemplate(w http.ResponseWriter, r *http.Request, gohtml string, data 
 
 	t, ok := tc[gohtml]
 	if !ok {
-		log.Fatal(ok)
+		return errors.New("Can't create template cache!")
 	}
 
 	buf := new(bytes.Buffer)
@@ -57,18 +60,22 @@ func RenderTemplate(w http.ResponseWriter, r *http.Request, gohtml string, data 
 
 	err := t.Execute(buf, data)
 	if err != nil {
-		log.Println(err)
+		log.Fatal(err)
+		return err
 	}
 
 	_, err = buf.WriteTo(w)
 	if err != nil {
-		log.Println(err)
+		log.Println("Error writing templates to browser", err)
+		return err
 	}
+	return nil
 }
 
+// CreateTemplateCache creates a template cache as a map
 func CreateTemplateCache() (mapCache, error) {
 	var myCache = make(mapCache)
-	pages, err := filepath.Glob("./templates/*.page.gohtml")
+	pages, err := filepath.Glob(fmt.Sprintf("%s/*.page.gohtml", pathToTemplates))
 	if err != nil {
 		return myCache, err
 	}
@@ -80,13 +87,13 @@ func CreateTemplateCache() (mapCache, error) {
 			return myCache, err
 		}
 
-		matches, err := filepath.Glob("./templates/*.layout.gohtml")
+		matches, err := filepath.Glob(fmt.Sprintf("%s/*.layout.gohtml", pathToTemplates))
 		if err != nil {
 			return myCache, err
 		}
 
 		if len(matches) > 0 {
-			ts, err = ts.ParseGlob("./templates/*.layout.gohtml")
+			ts, err = ts.ParseGlob(fmt.Sprintf("%s/*.layout.gohtml", pathToTemplates))
 			if err != nil {
 				return myCache, err
 			}

@@ -1,0 +1,13 @@
+mode: set
+github.com/golang-web/cmd/web/main.go:23.13,25.16 2 0
+github.com/golang-web/cmd/web/main.go:25.16,27.3 1 0
+github.com/golang-web/cmd/web/main.go:29.2,36.16 4 0
+github.com/golang-web/cmd/web/main.go:36.16,38.3 1 0
+github.com/golang-web/cmd/web/main.go:41.18,57.16 10 1
+github.com/golang-web/cmd/web/main.go:57.16,60.3 2 0
+github.com/golang-web/cmd/web/main.go:62.2,69.12 6 1
+github.com/golang-web/cmd/web/middleware.go:10.53,11.71 1 0
+github.com/golang-web/cmd/web/middleware.go:11.71,14.3 2 0
+github.com/golang-web/cmd/web/middleware.go:17.45,27.2 3 1
+github.com/golang-web/cmd/web/middleware.go:29.50,31.2 1 1
+github.com/golang-web/cmd/web/routes.go:12.49,38.2 18 1

@@ -86,7 +86,7 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 
 	// form.Has("first_name", r)
 	form.Required("first_name", "last_name", "email", "phone")
-	form.MinLength("first_name", 2, r)
+	form.MinLength("first_name", 2)
 	form.IsEmail("email")
 	form.IsPhone("phone")
 
@@ -151,7 +151,7 @@ func (m *Repository) ReservationSummary(w http.ResponseWriter, r *http.Request) 
 	}
 
 	m.App.Session.Remove(r.Context(), "reservation")
-	
+
 	data := make(map[string]any)
 	data["reservation"] = reservation
 

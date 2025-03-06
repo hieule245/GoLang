@@ -1,0 +1,25 @@
+mode: set
+github.com/golang-web/internal/render/render.go:31.39,33.2 1 1
+github.com/golang-web/internal/render/render.go:35.84,41.2 5 1
+github.com/golang-web/internal/render/render.go:43.109,46.18 2 1
+github.com/golang-web/internal/render/render.go:46.18,48.3 1 0
+github.com/golang-web/internal/render/render.go:48.8,50.3 1 1
+github.com/golang-web/internal/render/render.go:52.2,53.9 2 1
+github.com/golang-web/internal/render/render.go:53.9,55.3 1 1
+github.com/golang-web/internal/render/render.go:57.2,62.16 4 1
+github.com/golang-web/internal/render/render.go:62.16,65.3 2 0
+github.com/golang-web/internal/render/render.go:67.2,68.16 2 1
+github.com/golang-web/internal/render/render.go:68.16,71.3 2 0
+github.com/golang-web/internal/render/render.go:72.2,72.12 1 1
+github.com/golang-web/internal/render/render.go:76.46,79.16 3 1
+github.com/golang-web/internal/render/render.go:79.16,81.3 1 0
+github.com/golang-web/internal/render/render.go:83.2,83.29 1 1
+github.com/golang-web/internal/render/render.go:83.29,86.17 3 1
+github.com/golang-web/internal/render/render.go:86.17,88.4 1 0
+github.com/golang-web/internal/render/render.go:90.3,91.17 2 1
+github.com/golang-web/internal/render/render.go:91.17,93.4 1 0
+github.com/golang-web/internal/render/render.go:95.3,95.23 1 1
+github.com/golang-web/internal/render/render.go:95.23,97.18 2 1
+github.com/golang-web/internal/render/render.go:97.18,99.5 1 0
+github.com/golang-web/internal/render/render.go:101.3,101.21 1 1
+github.com/golang-web/internal/render/render.go:103.2,103.21 1 1
