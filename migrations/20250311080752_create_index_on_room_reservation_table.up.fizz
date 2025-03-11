@@ -1,0 +1,2 @@
+add_index("room_reservations", "start_date", {})
+add_index("room_reservations", "end_date", {})
